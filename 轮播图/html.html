@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <script src="jquery-1.8.3.js"></script>
+    <script src="html.js"></script>
+</head>
+<body>
+        <div id="container">
+            <div class="cause active">
+                <img src="images/c2.jpg"  />
+            </div>
+            <div class="cause">
+                <img src="images/c3.jpg"  />
+            </div>
+            <div class="cause">
+                <img src="images/c4.jpg"  />
+            </div>
+            <div class="cause">
+                <img src="images/c7.jpg"  />
+            </div>
+            <div class="cause">
+                <img src="images/c6.jpg"  />
+            </div>
+                 <div id="buttons" class="bA">
+                     <span data-index="0" class="focus_span"></span>
+                     <span data-index="1"></span>
+                     <span data-index="2"></span>
+                     <span data-index="3"></span>
+                     <span data-index="4"></span>
+                 </div>
+            <a href="#" id="prev" class="arrow">
+                <img src="images/left.png">
+            </a>
+            <a href="#" id="next"  class="arrow">
+                <img src="images/right.png">
+            </a>
+        </div>
+</body>
+</html>
+<style>
+    /**** 原理 ****/
+    /**** 如next时,当前图片利用动画效果从初始位置left:0向左移动left:-100%开始过渡时,下一张图片就开始显示,
+    要实现两图首尾相连一起执行动画效果,这时候第二张图片的初始位置应该是left:100%,然后向left:0开始过渡
+    所以这里需要两套样式,
+    第一套是当前图片起点left:0和终点left:-100%,
+    第二套是下一张图片left:100%和终点left:0;
+    ****/
+    .cause{
+        position: relative;
+         display: none;
+        transition: .6s ease-in-out left;
+    }
+    .active{
+        display: block;
+        left: 0;
+    }
+    /** next **/
+    .left{
+        left:-100%
+    }
+    .next{
+        position: absolute;
+        top: 0;
+        left:100%;
+        display: block;
+    }
+    .next.left{
+        left: 0;
+    }
+    /** prev **/
+    .right{
+        left: 100%;
+    }
+    .prev{
+        position: absolute;
+        top: 0;
+        left:-100%;
+        display: block;
+    }
+    .prev.right{
+        left: 0;
+    }
+
+
+    .cause img{
+        width: 350px;
+        height: 280px;
+    }
+    #container{
+        width: 350px;
+        position: relative;
+        top: 15%;
+        left: 33%;
+        height: 280px;
+        overflow: hidden;
+    }
+    #prev {
+        left: 10px;
+    }
+
+    #next {
+        right: 10px;
+    }
+    .arrow {
+        position: absolute;
+        top: 45%;
+        z-index: 2;
+
+        width: 40px;
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .bA {
+        position: absolute;
+        left: 40%;
+        bottom: 20px;
+        z-index: 2;
+        height: 10px;
+        width: 100px;
+    }
+
+    .bA  span {
+        float: left;
+        margin-right: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .bA  .focus_span {
+        background: orangered;
+    }
+</style>
