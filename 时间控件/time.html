@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间控件</title>
+</head>
+<body>
+    <div style="position: relative;">
+        <div class="div_month"></div>
+        <div style="    padding: 0 11.11%;">
+            <div class="header">
+                <li>星期天</li>
+                <li>星期一</li>
+                <li>星期二</li>
+                <li>星期三</li>
+                <li>星期四</li>
+                <li>星期五</li>
+                <li>星期六</li>
+            </div>
+        </div>
+        <div class="divA">
+            <div class="container div_Acitve">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+            </div>
+        </div>
+
+        <div class="d_left"><</div>
+        <div class="d_right">></div>
+    </div>
+</body>
+</html>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .div_month{
+        padding: 0 11.11%;
+        border: 1px solid #ccc;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        width: 77.77%;
+        margin-left: 11.11%;
+        border-bottom: none;
+    }
+    .divA{
+        width: 77.78%;
+        overflow: hidden;
+        margin-left: 11.11%;
+        position: relative;
+        border-left: 1px solid #ccc;
+    }
+    .header:after ,.container:after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .header {
+        width: 100%;
+        position: relative;
+    }
+    .container{
+        width: 100%;
+        position: relative;
+        transition: .6s ease-in-out left;
+        display: none;
+        overflow: hidden;
+    }
+    .div_Acitve{
+        display: block;
+        left: 0;
+    }
+    .header > li , .container > li{
+        list-style-type: none;
+        flex: 1;
+        border: 1px solid #ccc;
+        height: 50px;
+        text-align: center;
+        border-left: none;
+        line-height: 50px;
+        float: left;
+        width: 14.28%;
+    }
+    .header li:first-child{
+        border-left: 1px solid #ccc;
+    }
+    .container > li , .container > div{
+        cursor: pointer;
+    }
+    .d_left{
+        position: absolute;
+        left: 5%;
+        font-size: 30px;
+        top: 57px;
+        cursor: pointer;
+    }
+    .d_right{
+        position: absolute;
+        right: 5%;
+        font-size: 30px;
+        top: 57px;
+        cursor: pointer;
+    }
+    .li_active{
+        background: #ffa430;
+        color: #fff;
+    }
+
+    /*** 过渡效果 ***/
+    .container.next,
+    .container.prev {
+        position: absolute;
+        top: 0;
+    }
+    .div_Acitve.left{
+        left:-100%
+    }
+    .div_Acitve.right{
+        left: 100%;
+    }
+    .next{
+        left: 100%;
+        display: block;
+    }
+    .next.left{
+        left: 0;
+    }
+    .prev{
+        left: -100%;
+        display: block;
+    }
+    .prev.right{
+        left: 0;
+    }
+</style>
+<script src="../js/jquery-1.8.3.js"></script>
+<script src="time.js"></script>

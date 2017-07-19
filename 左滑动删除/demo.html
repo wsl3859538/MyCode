@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>购物车</title>
+    <link type="text/css" rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <link type="text/css" rel="stylesheet" href="centre.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="bar_header"  >
+        <div class="bar_img" onclick="back()"></div>
+        <h1 class="title"  >购物车</h1>
+    </div>
+    <div class="bar_content ">
+        <div class="shoppingcar-div">
+            <img src="">
+            <p>购物车还是空的哦～</p>
+        </div>
+        <div id="goods-div">
+            <a class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label weui-cell-lab" >
+                    <div class="weui-cell__hd checkbox">
+                        <input type="checkbox" class="weui-check" name="checkbox1" >
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd shoppingcar-goods">
+                        <img src="">
+                        <div>
+                            <p class="goodsName">尊贵再进化 新奥迪A8L</p>
+                            <p>1积分</p>
+                            <div class="shoppingcar-num-Div">
+                                <button class="shoppingcar-btn reduce" ontouchstart="reduceNum(this,event)">-</button>
+                                <input  id="Intext" type="text" class="shoppingcar-inputNum" value="1"/>
+                                <button class="shoppingcar-btn" ontouchstart="addNum(this,event)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scorll-div">
+                        <div class="scorll-div-mov" onclick="delGoods(this,event)">删除</div>
+                    </div>
+                </label>
+            </a>
+            <a class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label weui-cell-lab"  >
+                    <div class="weui-cell__hd checkbox">
+                        <input type="checkbox" class="weui-check" name="checkbox1"  >
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd shoppingcar-goods">
+                        <img src="">
+                        <div>
+                            <del class="goodsName">宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6宝马X6</del>
+                            <p>800000积分</p>
+                            <div class="shoppingcar-num-Div">
+                                <button class="shoppingcar-btn reduce" ontouchstart="reduceNum(this,event)">-</button>
+                                <input  type="text" class="shoppingcar-inputNum" value="1"/>
+                                <button class="shoppingcar-btn" ontouchstart="addNum(this,event)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scorll-div">
+                        <div class="scorll-div-mov" onclick="delGoods(this,event)">删除</div>
+                    </div>
+                </label>
+            </a>
+            <a class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label weui-cell-lab"  >
+                    <div class="weui-cell__hd checkbox">
+                        <input type="checkbox" class="weui-check" name="checkbox1"  >
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                    <div class="weui-cell__bd shoppingcar-goods">
+                        <img src="">
+                        <div>
+                            <p class="goodsName">9986321321231313131</p>
+                            <p>1000000积分</p>
+                            <div class="shoppingcar-num-Div">
+                                <button class="shoppingcar-btn reduce" ontouchstart="reduceNum(this,event)">-</button>
+                                <input  type="text" class="shoppingcar-inputNum" value="1"/>
+                                <button class="shoppingcar-btn" ontouchstart="addNum(this,event)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scorll-div">
+                        <div class="scorll-div-mov" onclick="delGoods(this,event)">删除</div>
+                    </div>
+                </label>
+            </a>
+        </div>
+        <div class="weui-footer weui-footer_fixed-bottom">
+            <div>
+                <a class="weui-cells weui-cells_checkbox">
+                    <label class="weui-cell weui-check__label" >
+                        <div class="weui-cell__hd allchoise"  >
+                            <input class="weui-check" type="checkbox" name="checkbox1"  onclick="choiseAll(this)" >
+                            <i class="weui-icon-checked"></i>
+                            <span style="color:#000">全选</span>
+                        </div>
+                    </label>
+                </a>
+            </div>
+            <div>
+                <span>合计：<span style="color:red" id="totalMoney">0.00</span></span>
+            </div>
+            <div>
+                <button class="wx_btn_diy">兑换(<span id="totalNum">0</span>)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="../js/jquery-1.8.3.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+<script src="demo.js"></script>
+</html>
+<style>
+
+
+    /*** 加边框 左右边距保持一致***/
+    .weui-check__label{
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding-left: .35em;
+    }
+    .goodsName{
+        overflow: hidden;
+        height: 40px;
+    }
+    .shoppingcar-div{
+        display: none;
+    }
+    .weui-footer_fixed-bottom{
+        bottom:0;
+        height: 44px;
+        border-top: 1px solid #ccc;
+        background: #F5F5F5;
+        line-height: 44px;
+    }
+    .weui-footer_fixed-bottom > div{
+        float: left;
+        text-align: center;
+    }
+    .weui-footer_fixed-bottom > div:nth-child(1){
+        width: 28%;
+    }
+    .weui-footer_fixed-bottom > div:nth-child(2){
+        width: 44%;
+    }
+    .weui-footer_fixed-bottom > div:nth-child(3){
+        width: 28%;
+    }
+    .weui-footer_fixed-bottom label{
+        border: none;
+    }
+    .weui-footer{
+        color: #000
+    }
+    .weui-cell-lab{
+        padding: 0;
+        background: #fff;
+    }
+    .weui-flex{
+        height: 44px;
+        line-height: 44px;
+    }
+    .weui-flex__item button{
+        float: left;
+    }
+    /*** 滑动 ***/
+    .scorll-div{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        height: 100%;
+    }
+    .scorll-div-mov{
+        border-color: #e42012;
+        background-color: #ef473a;
+        color: #fff;
+        height: 100%;
+        padding: 0 12px;
+        min-width: 40px;
+        display: inline-flex;
+        position: relative;
+        align-items: center;
+        -webkit-align-items: center;
+        visibility: hidden;
+    }
+    .shoppingcar-goods{
+        transition:.1s;
+        background: #fff;
+        padding: 10px 15px;
+    }
+</style>

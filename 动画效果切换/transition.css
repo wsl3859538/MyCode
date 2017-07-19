@@ -1,0 +1,43 @@
+/***left ***/
+.forLeft{
+    transition: left 2s ease-in-out;
+}
+.move_left{
+    left: -100%;
+}
+.originleft{
+    left: 0;
+}
+
+/***top ***/
+.forTop{
+    transition: top 2s ease-in-out;
+}
+.move_top{
+    top: -200px;
+}
+.origintop{
+    top: 0;
+}
+
+/*** right ***/
+.forRight{
+    transition: left 2s ease-in-out;
+}
+.move_right{
+    left: 100%;
+}
+.originright{
+    left: 0;
+}
+
+/*** bottom ***/
+.forBottom{
+    transition: top 2s ease-in-out;
+}
+.move_bottom{
+    top: 300px;
+}
+.originbottom{
+    top: 0;
+}
