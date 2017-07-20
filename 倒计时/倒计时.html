@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+<div>
+    <span><span id="d"></span>天</span>
+    <span><span id="h"></span>小时</span>
+    <span><span id="m"></span>分钟</span>
+    <span><span id="s"></span>秒</span>
+</div>
+</body>
+</html>
+<script src="../js/jquery-1.8.3.js"></script>
+<script>
+    $(window).on('load',function(){
+        var time_s = 96311043;
+        var d = parseInt(time_s/24/3600);
+        var h = parseInt((time_s/3600)%24);
+        var m = parseInt((time_s/60)%60);
+        var s = parseInt(time_s%60)
+        $('#d').text(d)
+        $('#h').text(h)
+        $('#m').text(m)
+        $('#s').text(s)
+        setInterval(function(){
+            time_s --
+            d = parseInt(time_s/24/3600);
+            h = parseInt((time_s/3600)%24);
+            m = parseInt((time_s/60)%60);
+            s = parseInt(time_s%60)
+            $('#d').text(d)
+            $('#h').text(h)
+            $('#m').text(m)
+            $('#s').text(s)
+        },1000)
+    })
+
+</script>
