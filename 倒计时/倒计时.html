@@ -21,6 +21,12 @@
         var h = parseInt((time_s/3600)%24);
         var m = parseInt((time_s/60)%60);
         var s = parseInt(time_s%60)
+        if(m<10){
+            m = '0'+m;
+        }
+        if(s<10){
+            s = '0'+s;
+        }
         $('#d').text(d)
         $('#h').text(h)
         $('#m').text(m)
@@ -31,6 +37,14 @@
             h = parseInt((time_s/3600)%24);
             m = parseInt((time_s/60)%60);
             s = parseInt(time_s%60)
+
+            if(m<10){
+                m = '0'+m;
+            }
+            if(s<10){
+                s = '0'+s;
+            }
+
             $('#d').text(d)
             $('#h').text(h)
             $('#m').text(m)

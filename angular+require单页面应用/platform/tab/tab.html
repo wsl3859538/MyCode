@@ -1,0 +1,30 @@
+<ion-nav-view></ion-nav-view>
+<ion-footer-bar class="tab_footer">
+    <div class="tabs tabs-icon-top tabs-icon-footer" style="    height: 45px;
+    right: 5px;">
+        <a class="tab-item" ng-click="goUrl('tab.index',1)">
+            <img src="img/fl.png" class="tab_coinimg" ng-show="isActiveTab != 1">
+            <img src="img/cq.png" class="tab_coinimg" ng-show="isActiveTab == 1">
+            <br/>
+            <span class="tab_coinspan" ng-class="{'color1':isActiveTab == 1}">主页</span>
+        </a>
+        <a class="tab-item" ng-click="goUrl('tab.companyprofile',2)">
+            <img src="img/fl.png" class="tab_coinimg" ng-show="isActiveTab != 2">
+            <img src="img/cq.png" class="tab_coinimg" ng-show="isActiveTab == 2">
+            <br/>
+            <span class="tab_coinspan" ng-class="{'color1':isActiveTab == 2}">企业简介</span>
+        </a>
+        <a class="tab-item" ng-click="goUrl('',4)">
+            <img src="img/fl.png" class="tab_coinimg"  ng-show="isActiveTab != 4">
+            <img src="img/cq.png" class="tab_coinimg" ng-show="isActiveTab == 4">
+            <br/>
+            <span class="tab_coinspan" ng-class="{'color1':isActiveTab == 4}">智慧管家</span>
+        </a>
+        <a class="tab-item"  ng-click="goUrl('',5)">
+            <img src="img/fl.png" class="tab_coinimg"  ng-show="isActiveTab != 5">
+            <img src="img/cq.png" class="tab_coinimg" ng-show="isActiveTab == 5">
+            <br/>
+            <span class="tab_coinspan" ng-class="{'color1':isActiveTab == 5}">我的</span>
+        </a>
+    </div>
+</ion-footer-bar>

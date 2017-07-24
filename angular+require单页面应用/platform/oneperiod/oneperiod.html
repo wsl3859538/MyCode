@@ -1,0 +1,26 @@
+<ion-pane >
+    <ion-content class="has-header" >
+        <img src="img/t1.jpg" width="100%">
+        <h1 style="text-align: center">一期项目参数</h1>
+        <div>
+            <p style="padding: 15px;" ng-bind-html="base.p | to_Html">
+            </p>
+        </div>
+        <div class="market_div" id="gps2" style="text-align: center">
+            <p class="index_p9"></p>
+            <div class="index_lead index_div1">
+                <p>一期实景图</p>
+            </div>
+            <span class="market_span6">APARTMENT LAYOUT DIAGRAM</span>
+        </div>
+        <div class="item borderno index_divF" style="height: {{clientHeight*0.31}}px;" >
+            <ion-scroll zooming="false" direction="x" scrollbar-x="false" id="innerByT">
+                <ul class="index_ul2" style="width: {{base.CMLJson.length * 60}}%">
+                    <li ng-repeat="item2 in base.CMLJson" style="height: {{clientHeight*0.29}}px;width: 132px">
+                        <img style="height:100px;width: 100%"  ng-src="{{item2.ImageURL}}"  >
+                    </li>
+                </ul>
+            </ion-scroll>
+        </div>
+    </ion-content>
+</ion-pane>

@@ -1,0 +1,35 @@
+<ion-pane >
+    <div class="bar bar-header bar-color">
+        <a class="button  button-clear"  ng-click="goBack()">
+            <span><i class="icon ion-ios-arrow-left"></i></span>
+        </a>
+        <h1 class="title">{{title}}</h1>
+    </div>
+    <ion-content class="has-header" >
+        <img src="img/bz.jpg" width="100%">
+        <div>
+            <p class="cp_p">
+                新潮集团是大庆市私营企业十强之一
+                旗下拥有新潮家俬装材料有限公司、房地产开发有限责任公司、物业管理有限公司、奥利雅广告有限公司、热力公司等6家子公司，在册员工1000万余人，从业人数30万人，近年来集团重点发展家具建材市场、房地产开发、商贸、投资等支柱性产业，现已成为拥有总资产160亿元的跨行业、跨地区发展的集团公司。
+                新潮集团独资开发了位于大庆市的大型商业项目“丽水摩尔街”、“新潮购物广场”、住宅项目有占地百万平米“丽水华城”楼盘，该项目被评为全国优秀人文环境楼盘、曾获过黑龙江省建设厅、大庆市多项大奖，是东北金牌商住社区。
+            </p>
+        </div>
+        <div class="market_div" id="gps2" style="text-align: center">
+            <p class="index_p9"></p>
+            <div class="index_lead index_div1">
+                <p>集团风采</p>
+            </div>
+            <span class="market_span6">GROUP STYLE</span>
+        </div>
+        <div class="item borderno index_divF" style="height: {{clientHeight*0.31}}px;" >
+            <ion-scroll zooming="false" direction="x" scrollbar-x="false" id="innerByT">
+                <ul class="index_ul2" style="width: {{data.CMLJson.length * 60}}%">
+                    <li ng-repeat="item2 in data.CMLJson" style="height: {{clientHeight*0.29}}px;width: 132px">
+                        <img style="height:100px;width: 100%"  ng-src="{{item2.ImageURL}}"  >
+                        <p class="fontdouble4 index_p6">{{item2.CMLName}}</p>
+                    </li>
+                </ul>
+            </ion-scroll>
+        </div>
+    </ion-content>
+</ion-pane>

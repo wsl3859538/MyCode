@@ -1,0 +1,21 @@
+
+<ion-pane >
+    <div class="bar bar-header bar-color">
+        <h1 class="title">主页</h1>
+    </div>
+    <ion-content class="has-header" >
+        <p style="text-indent: 2em;
+    padding: 10px;
+    margin-top: 20%;">
+            相对angular的写法，这里由于使用requirejs管理全部模块，所以index.html中不需要引入angular等，只是设置了一个带ng-view属性的div，用于充当整个App的视图区域。
+
+            data-baseurl是额外加入的属性，主要好处是可以轻松在html（0缓存）中对js的url进行修改。
+
+            data-main就是requirejs的标准写法了，跳过不说。
+        </p>
+    </ion-content>
+
+
+</ion-pane>
+
+

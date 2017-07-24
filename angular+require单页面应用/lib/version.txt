@@ -1,0 +1,25 @@
+js版本2.1.0
+tomcat action版本:17758
+service版本:17738
+
+1.vpCommonService.js
+  1.1 previewImg 图片预览服务优化  去除额外的注入服务 $q  vpRemoteService
+  1.2 userInfoFactory 用户登录服务优化 去除额外的注入服务 $q $rootScope $timeout
+  1.3 fileFactory  文件服务代码优化 去除额外的注入服务 $rootScope modalFactory
+  1.4 loginFactory 删除登录服务,没有使用过
+  1.5 modalFactory 模态窗服务代码优化
+      去除额外的注入服务 $timeout
+      解决模态窗多次弹窗无法关闭最后窗体的问题
+
+2.vpCommonDirective.js
+  2.1新增ueditorHelper服务，用于动态加载百度编辑器的js
+
+3.vpUtils.js 中加入 treeTable  树状结构
+
+4.vpDataModelService.js
+ DataTable.prototype.remove  代码修改
+  //如果不是在内存中新增后有删除
+  if(this.data[index].rowstate != "4"){
+       this.delDataArr.push(delDataObj);
+       delDataObj.rowstate = "2";
+  }
